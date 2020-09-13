@@ -1,14 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function(req, res, next) {
-    const data = {
-        data: {
-            msg: "register page"
-        }
-    };
+const auth = require('../models/auth.js');
 
-    res.json(data);
+router.post('/', function(req, res) {
+    auth.register(res, req);
 });
 
 module.exports = router;
