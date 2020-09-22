@@ -50,7 +50,10 @@ Installera moduler med **npm install**.
 
 Starta appen med kommandot **npm start**.
 
-Öppna [http://localhost:1337](http://localhost:1337) för att se sidan i din webbläsare.'),
+Öppna [http://localhost:8333](http://localhost:8333) för att se sidan i din webbläsare.
+
+Skapa en .env-fil i rooten och lägg in din JWT_SECRET.
+Exempel: JWT_SECRET=Lzm^o>Q-lGO)xg1UcAcEtMaFN$XX"m@T0FsbO3Rd!whxt*>e,6ej-XYBYAd.#BR'),
     (3, 'Text uppdateras snart.'),
     (4, 'Text uppdateras snart.'),
     (5, 'Text uppdateras snart.'),
