@@ -1,5 +1,5 @@
-const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./db/texts.sqlite');
+// const db = new sqlite3.Database('./db/texts.sqlite');
+const db = require("../db/db.js");
 
 require('dotenv').config();
 
@@ -40,48 +40,54 @@ const auth = {
         const password = req.body.password;
 
         let sql = 'SELECT * FROM users WHERE email = ?';
-            db.get(sql, email, (err, rows) => {
-                if (err) {
-                    return res.status(500).json({
-                        errors: {
-                            status: 500,
-                            source: 'POST /login',
-                            title: 'Database error',
-                            detail: err.message
-                        }
-                    });
-                }
-                if (rows === undefined) {
-                    return res.status(401).json({
-                        errors: {
-                            status: 401,
-                            source: 'POST /login',
-                            title: 'Did not match any user information in the database',
-                        }
-                    });
-                }
 
-                bcrypt.compare(password, rows.password, (err, result) => {
-                if (err) {
-                    console.log(err);
-                }
+        db.get(sql, email, (err, rows) => {
+            if (err) {
+                return res.status(500).json({
+                    errors: {
+                        status: 500,
+                        source: 'POST /login',
+                        title: 'Database error',
+                        detail: err.message
+                    }
+                });
+            }
+            if (rows === undefined) {
+                return res.status(401).json({
+                    errors: {
+                        status: 401,
+                        source: 'POST /login',
+                        title: 'Did not match any user information in the database',
+                    }
+                });
+            }
+
+            bcrypt.compare(password, rows.password, (err, result) => {
                 if (result) {
                     let token = jwt.sign({ email: rows.email }, secret, { expiresIn: '1h'});
+
                     return res.json({
                         data: {
                             email: rows.email,
                             token: token
                         }
-                    })
+                    });
                 }
-            })
+                return res.status(401).json({
+                    errors: {
+                        status: 401,
+                        source: 'POST /login',
+                        detail: 'Wrong password'
+                    }
+                })
+            });
         });
     },
 
     checkToken: function(req, res, next) {
         const token = req.headers['x-access-token'];
 
-        jwt.verify(token, secret, function(err, decoded) {
+        jwt.verify(token, secret, function(err) {
             if (err) {
                 return res.status(500).json({
                     errors: {
@@ -95,6 +101,6 @@ const auth = {
             next();
         });
     }
-}
+};
 
 module.exports = auth;

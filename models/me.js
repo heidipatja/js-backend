@@ -1,5 +1,5 @@
-const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./db/texts.sqlite');
+// const db = new sqlite3.Database('./db/texts.sqlite');
+const db = require("../db/db.js");
 
 const me = {
     getPresentation: function(req, res) {
@@ -20,7 +20,7 @@ const me = {
                 data: row
             });
         });
-    },
-}
+    }
+};
 
 module.exports = me;

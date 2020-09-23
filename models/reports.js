@@ -1,5 +1,5 @@
-const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./db/texts.sqlite');
+// const db = new sqlite3.Database('./db/texts.sqlite');
+const db = require("../db/db.js");
 
 const reports = {
     getReport: function(req, res) {
@@ -13,6 +13,15 @@ const reports = {
                         source: "GET /reports/week/:week",
                         title: "Database error 500",
                         detail: err.message
+                    }
+                });
+            }
+            if (row === undefined) {
+                return res.status(404).json({
+                    errors: {
+                        status: 404,
+                        source: 'GET /reports/week/:week',
+                        title: 'Did not find week',
                     }
                 });
             }
@@ -38,8 +47,8 @@ const reports = {
             }
             return res.status(200).json({
                 data: rows
-            })
-        })
+            });
+        });
     },
 
     updateReport: function(res, req) {
@@ -54,7 +63,7 @@ const reports = {
                         title: "Database error 500",
                         detail: err.message
                     }
-                })
+                });
             }
             return res.status(204).send();
         });
@@ -72,11 +81,11 @@ const reports = {
                         title: "Database error 500",
                         detail: err.message
                     }
-                })
+                });
             }
             return res.status(201).send();
         });
     }
-}
+};
 
 module.exports = reports;

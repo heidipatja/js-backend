@@ -2,8 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 require('dotenv').config();
-const jwt = require('jsonwebtoken');
-const secret = process.env.JWT_SECRET;
+
 const reports = require('../models/reports.js');
 const auth = require('../models/auth.js');
 
