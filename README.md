@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/heidipatja/js-backend.svg?branch=master)](https://travis-ci.org/heidipatja/js-backend)
+
 ## Available Scripts
 
 In the project directory, you can run:
