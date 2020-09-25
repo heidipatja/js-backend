@@ -59,16 +59,23 @@ Starta appen med kommandot **npm start**.
 
 Öppna [http://localhost:8333](http://localhost:8333) för att se sidan i din webbläsare.
 
-Skapa en .env-fil i rooten och lägg in din JWT_SECRET.
-Exempel: JWT_SECRET=Lzm^o>Q-lGO)xg1UcAcEtMaFN$XX"m@T0FsbO3Rd!whxt*>e,6ej-XYBYAd.#BR'),
-    (3, 'Kursmomentet flöt i huvudsak på bra. Det största problemet var egentligen att få tillgång till Github Education Pack, vilket jag inte fick förrän fredagen samma vecka som uppgiften skulle in. Därför blev inlämningen lite försenad.
+Skapa en .env-fil i rooten och lägg in din JWT_SECRET. Exempel:
+    JWT_SECRET=Lzm^o>Q-lGO'),
+    (3, '
+Kursmomentet flöt i huvudsak på bra. Det största problemet var egentligen att få tillgång till Github Education Pack, vilket jag inte fick förrän fredagen samma vecka som uppgiften skulle in. Därför blev inlämningen lite försenad.
 
   Det enda jag egentligen fastnade på vad det gäller driftsättningen var att få upp domänerna. Jag gick igenom guiden väldigt många gånger uppifrån och ner och såg till slut att jag hade missuppfattat ett steg och inte lagt in mina nameservers i namecheap. Därefter misslyckades jag, p.g.a. bristande UX, med att spara mina ändringar där, så det blev ett par rundor till… Att jag stötte på trubbel är inte dåligt i sig, eftersom det ledde till att jag blev väldigt bekant med både servern och hela processen. När allt går som det ska första gången är det ju lätt att man glömmer bort vad det var man gjorde, särskilt om man bara följer en guide och inte riktigt förstår vad man gör.
 
 Frontenden gick väldigt snabbt. Dock fick jag fundera en stund på varför login och register inte fungerade, vilket förstås berodde på att min .env-fil låg i .gitignore och därför inte följde med när jag klonade repot.
 
 Jag tyckte att veckans kursmoment var väldigt intressant och jag har fått en mycket bättre förståelse för hela processen kring driftsättning. Det är väldigt mycket detaljer som ska klaffa och det kan vara svårt att veta vad det är som är fel när man har missat en liten detalj. Det blir också tydligare att olika “fel” man gjort under utvecklingen kan bli problem vid driftsättning. Till exempel hade jag kanske själv blivit hjälpt av tydligare felmeddelanden när jag stötte på problemet med den saknade .env-filen. Det är antagligen också där testningen kommer in. Det blir tydligt att det krävs kompetens inom devops för att hela kedjan från utveckling till driftsättning ska fungera snabbt och smärtfritt.'),
-    (4, 'Text uppdateras snart.'),
+    (4, '### Use cases för Selenium
+
+1. Testa att me-sidan har rätt titel, H1 och url
+
+2. Testa att det går att navigera till login-sidan
+
+3. Testa att login-sidan har en grön knapp med texten "Logga in"'),
     (5, 'Text uppdateras snart.'),
     (6, 'Text uppdateras snart.'),
     (7, 'Text uppdateras snart.');
