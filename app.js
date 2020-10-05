@@ -6,6 +6,7 @@ const me = require('./routes/me');
 const reports = require('./routes/reports');
 const login = require('./routes/login');
 const register = require('./routes/register');
+const chat = require('./routes/chat');
 
 const bodyParser = require("body-parser");
 const app = express();
@@ -34,6 +35,7 @@ app.use('/', me);
 app.use('/login', login);
 app.use('/register', register);
 app.use('/reports', reports);
+app.use('/chat', chat);
 
 // Add routes for 404 and error handling
 // Catch 404 and forward to error handler
