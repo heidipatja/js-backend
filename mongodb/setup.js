@@ -1,5 +1,5 @@
 const mongo = require("mongodb").MongoClient;
-const dsn =  "mongodb://localhost:27017/chat";
+const dsn = "mongodb://localhost:27017/chat";
 
 const fs = require("fs");
 const path = require("path");
@@ -8,7 +8,7 @@ const docs = JSON.parse(fs.readFileSync(
     "utf8"
 ));
 
-resetCollection(dsn, "chatlog", docs)
+resetCollection(dsn, "chat", docs)
     .catch(err => console.log(err));
 
 async function resetCollection(dsn, collection, doc) {
